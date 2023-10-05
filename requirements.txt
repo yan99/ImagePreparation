@@ -1,0 +1,13 @@
+opencv-python
+wget
+numpy
+glob2
+pickle
+zipfile36
+pandas
+scipy
+imageio
+torch
+matplotlib
+scikit-image
+torchvision

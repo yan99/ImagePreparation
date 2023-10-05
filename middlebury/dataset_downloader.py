@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 import wget
 from zipfile import ZipFile
-'''
+
 # Read links from txt file
 links_file_name = 'dataset_links.txt'
 
@@ -19,7 +19,7 @@ with open(links_file_name, 'r') as links_file:
 		print(link)
 		# download file 
 		ret = wget.download(link)
-'''
+
 # unzipping all downloaded file
 # Getting all filenames
 zip_names = glob.glob('*.zip')
@@ -27,7 +27,7 @@ zip_names = glob.glob('*.zip')
 for filename in zip_names:
 	with ZipFile(filename,'r') as f:
 		f.extractall()# unzipping
-	# os.remove(filename) # removing zip file to save space
+	os.remove(filename) # removing zip file to save space
 
 
 # Converting PFM to PNG 
@@ -63,8 +63,8 @@ for filename in filenames:
 		# Adding depth file
 		depth = cv2.imread(png_depth_file, cv2.IMREAD_UNCHANGED) # read as gray img
 		depth[depth==np.inf] = 0
-		depth = cv2.normalize(depth,None,0,255,cv2.NORM_MINMAX).astype(np.uint8)
-		cv2.imwrite(png_depth_file[:-4]+'.png',depth)
+		# depth = cv2.normalize(depth,None,0,255,cv2.NORM_MINMAX).astype(np.uint8)
+		cv2.imwrite(png_depth_file[:-4]+'.png',depth.astype(np.uint16))
 		depth_imgs.append(depth)
 
 		os.remove(png_depth_file)

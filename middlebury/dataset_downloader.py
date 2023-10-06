@@ -2,7 +2,7 @@ import os
 import glob
 import cv2
 import numpy as np
-import pickle5 as pickle
+import pickle
 import wget
 from zipfile import ZipFile
 

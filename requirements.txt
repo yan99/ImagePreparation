@@ -2,7 +2,7 @@ opencv-python
 wget
 numpy
 glob2
-pickle
+pickle5
 zipfile36
 pandas
 scipy

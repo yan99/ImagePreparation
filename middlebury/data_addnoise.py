@@ -5,7 +5,26 @@ import cv2
 from scipy.interpolate import griddata
 from scipy import ndimage
 
+'''
+Noise Models References:
+@article{Barron:etal:2013A,
+  author  = {Jonathan T. Barron and Jitendra Malik},
+  title   = {Intrinsic Scene Properties from a Single RGB-D Image},
+  journal = {CVPR},
+  year    = {2013},
+}
 
+@article{Bohg:etal:2014,
+  title   = {Robot arm pose estimation through pixel-wise part classification},
+  author  = {Bohg, Jeannette and Romero, Javier and Herzog, Alexander and Schaal, Stefan},
+  journal = {ICRA},
+  year    = {2014},
+}
+'''
+
+'''
+Function add_gaussian_shifts referred to https://github.com/ankurhanda/simkinect/blob/master/add_noise.py
+'''
 def add_gaussian_shifts(depth, std=1/2.0):
 
     rows, cols = depth.shape 
@@ -28,7 +47,10 @@ def add_gaussian_shifts(depth, std=1/2.0):
     depth_interp = cv2.remap(depth, xp_interp, yp_interp, cv2.INTER_LINEAR)
 
     return depth_interp
-    
+
+'''
+Function filterDisp modified according to https://github.com/ankurhanda/simkinect/blob/master/add_noise.py
+'''    
 
 def filterDisp(disp, dot_pattern_, invalid_disp_):
     
@@ -133,7 +155,9 @@ if __name__ == "__main__":
 
     depth_imgs = []
     gt_imgs = []
+    print(len(rgb_imgs))
     for i in range(len(rgb_imgs)):
+        print(i)
         gt = gt_depth[i]
         h, w = gt.shape 
         depth = gt.astype('float') / 5000.0
@@ -165,13 +189,12 @@ if __name__ == "__main__":
         noisy_depth = noisy_depth.astype('uint16')
         '''
         
-        # depth2save = np.hstack((gt.astype(np.uint16), (noisy_depth*5000).astype(np.uint16)))
-        # cv2.imwrite('depth_noised.png', depth2save)
+        depth2save = np.hstack((gt.astype(np.uint16), (noisy_depth*5000).astype(np.uint16)))
+        cv2.imwrite('noise_depth/depth_noised_{}.png'.format(i), depth2save)
 
         depth_imgs.append(noisy_depth)
         gt_imgs.append((gt/5000.0).astype('float'))
         
-
     raw_df = pd.DataFrame({'rgb':rgb_imgs,
                             'depth':depth_imgs,
                             'gt':gt_imgs})

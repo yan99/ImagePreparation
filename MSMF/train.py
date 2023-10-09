@@ -153,7 +153,7 @@ def main():
             utils.save_ckpt(args.ckpt_dir, model, opt, global_step, epoch,
                     local_count, num_train, training_loss)
     
-    utils.save_ckpt(args.ckpt_dir, model, opt, global_step, args.epochs, 0, num_train)
+    utils.save_ckpt(args.ckpt_dir, model, opt, global_step, args.epochs, 0, num_train, training_loss)
     with open('loss',"wb") as loss_out:
         pickle.dump(training_loss, loss_out)
     print("Training job finish!\n")

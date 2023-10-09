@@ -149,9 +149,9 @@ def main():
                 cv2.imwrite('checkpts/img/output_10_{}.png'.format(epoch),outputs_out)
                 cv2.imwrite('checkpts/img/gt_10_{}.png'.format(epoch),gt_out)
             
-            if epoch % args.save_epoch_freq == 0 and epoch != args.start_epoch:
-                utils.save_ckpt(args.ckpt_dir, model, opt, global_step, epoch,
-                      local_count, num_train, training_loss)
+        if epoch % args.save_epoch_freq == 0 and epoch != args.start_epoch:
+            utils.save_ckpt(args.ckpt_dir, model, opt, global_step, epoch,
+                    local_count, num_train, training_loss)
     
     utils.save_ckpt(args.ckpt_dir, model, opt, global_step, args.epochs, 0, num_train)
     with open('loss',"wb") as loss_out:

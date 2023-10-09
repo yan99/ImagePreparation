@@ -1,4 +1,4 @@
-# Depthh Image Denoise 
+# Depth Image Denoise 
 
 Pytorch Implementation of Multi-Scale Mutual Feature Convolutional Neural Network for Depth Image Denoise and Enhancement
 

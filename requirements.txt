@@ -2,12 +2,12 @@ opencv-python
 wget
 numpy
 glob2
-pickle
 zipfile36
 pandas
 scipy
 imageio
 torch
+torchvision
+torchaudio
 matplotlib
 scikit-image
-torchvision

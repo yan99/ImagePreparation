@@ -3,7 +3,7 @@
 Pytorch Implementation of Multi-Scale Mutual Feature Convolutional Neural Network for Depth Image Denoise and Enhancement
 
 # On linux
-In `.bash_profile` file: `module load cuda/12.1.1`
+In `.bash_profile` file in home directory: `module load cuda/12.1.1`
 
 In bash file, load with log file which is actually the bash profile file defined above by using `-l`: `#!/bin/sh -l`
 

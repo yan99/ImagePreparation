@@ -14,6 +14,8 @@ Sample commend line for submitting bash job with memories of 8 CPUs:
 ```
 sbash -t 0:30:00 --nodes=1 --gpus-per-node=1 -n8 train1.sh
 ```
+Tip: issue caused by tab, in vim, use `/\t` to find tabs and hit `n` to go to next.
+
 Install required packages:
 ```
 pip install -r requirements.txt

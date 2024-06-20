@@ -1,6 +1,6 @@
 Pytorch implementation of DDVM
 
-'''
+```
 @article{saxena2024surprising,
   title={The surprising effectiveness of diffusion models for optical flow and monocular depth estimation},
   author={Saxena, Saurabh and Herrmann, Charles and Hur, Junhwa and Kar, Abhishek and Norouzi, Mohammad and Sun, Deqing and Fleet, David J},
@@ -8,4 +8,4 @@ Pytorch implementation of DDVM
   volume={36},
   year={2024}
 }
-'''
+```

@@ -1,6 +1,6 @@
 # Depth Image Denoise 
+This implementations include three parts, the middlebury dataset together with noise models, an implementation of a CNN denoising model MSMF, and an implementation of a diffusion model DDVM (with a simple Unet, will implement with efficient Unet and the patchwise training method in the near future).
 
-Pytorch Implementation of Multi-Scale Mutual Feature Convolutional Neural Network for Depth Image Denoise and Enhancement
 
 # On linux
 In `.bash_profile` file in home directory: `module load cuda/12.1.1`
@@ -26,6 +26,24 @@ pip install -r requirements.txt
 
 If you use this code, please consider citing the following papers
 
+
+Noise Models References:
+```
+@article{Barron:etal:2013A,
+  author  = {Jonathan T. Barron and Jitendra Malik},
+  title   = {Intrinsic Scene Properties from a Single RGB-D Image},
+  journal = {CVPR},
+  year    = {2013},
+}
+
+@article{Bohg:etal:2014,
+  title   = {Robot arm pose estimation through pixel-wise part classification},
+  author  = {Bohg, Jeannette and Romero, Javier and Herzog, Alexander and Schaal, Stefan},
+  journal = {ICRA},
+  year    = {2014},
+}
+```
+MSMF, the CNN model:
 ```
 @inproceedings{liao2017multi,
   title={Multi-scale mutual feature convolutional neural network for depth image denoise and enhancement},
@@ -34,5 +52,15 @@ If you use this code, please consider citing the following papers
   pages={1--4},
   year={2017},
   organization={IEEE}
+}
+```
+DDVM, the diffusion model
+```
+@article{saxena2024surprising,
+  title={The surprising effectiveness of diffusion models for optical flow and monocular depth estimation},
+  author={Saxena, Saurabh and Herrmann, Charles and Hur, Junhwa and Kar, Abhishek and Norouzi, Mohammad and Sun, Deqing and Fleet, David J},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  year={2024}
 }
 ```

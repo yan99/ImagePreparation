@@ -1,4 +1,4 @@
-Pytorch implementation of DDVM
+Pytorch implementation of a diffusion model DDVM (with a simple Unet, will implement with efficient Unet and the patchwise training method in the near future).
 
 ```
 @article{saxena2024surprising,
